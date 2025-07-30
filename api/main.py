@@ -12,7 +12,9 @@ import uuid
 from datetime import datetime, timedelta
 from passlib.context import CryptContext
 import uvicorn
-
+from fastapi.responses import JSONResponse
+from fastapi.requests import Request
+from fastapi import status
 # Local imports
 from .database import get_db, create_tables, User, Agent, PhoneNumber, Call
 from .auth_utils import AuthUtils, EmailService, GoogleAuth
@@ -47,6 +49,13 @@ auth_utils = AuthUtils()
 async def startup_event():
     create_tables()
 
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    print(f"Exception occurred: {exc}")
+    return JSONResponse(
+        status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+        content={"detail": "Internal Server Error", "error": str(exc)},
+    )
 # Pydantic models
 class UserRegister(BaseModel):
     name: str
