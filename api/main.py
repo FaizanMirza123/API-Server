@@ -16,8 +16,8 @@ from fastapi.responses import JSONResponse
 from fastapi.requests import Request
 from fastapi import status
 # Local imports
-from .database import get_db, create_tables, User, Agent, PhoneNumber, Call
-from .auth_utils import AuthUtils, EmailService, GoogleAuth
+from api.database import get_db, create_tables, User, Agent, PhoneNumber, Call
+from api.auth_utils import AuthUtils, EmailService, GoogleAuth
 
 # Environment variables
 VAPI_API_KEY = "b53d60fd-f374-4af6-b586-3d2ff3463efa"
