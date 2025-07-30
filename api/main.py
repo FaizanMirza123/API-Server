@@ -873,6 +873,3 @@ async def vapi_health_check():
 async def root():
     return {"message": "EmployAI API", "version": "1.0.0"}
 
-# Export the app for Vercel
-handler = app
-
