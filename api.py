@@ -1,5 +1,5 @@
 # Vercel entry point
-from main import app
+from api.main import app
 
 # Export the FastAPI app for Vercel
 handler = app
