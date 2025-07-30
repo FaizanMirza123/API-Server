@@ -27,7 +27,7 @@ app = FastAPI(title="EmployAI API", version="1.0.0")
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://cloud-rep-ten.vercel.app/"],
+    allow_origins=["https://cloud-rep-ten.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
